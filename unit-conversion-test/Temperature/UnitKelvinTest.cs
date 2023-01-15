@@ -7,21 +7,8 @@ using unit_conversion.Temperature;
 
 namespace unit_conversion_test.Temperature
 {
-    public class UnitFahrenheitTest
+    public class UnitKelvinTest
     {
-        [Fact]
-        public void ConvertToKelvin()
-        {
-            // Arrange
-            TemperatureConversion temp = new TemperatureConversion();
-
-            // Act
-            decimal toKelvin = temp.convert(TemperatureConversion.FAHRENHEIT, TemperatureConversion.KELVIN, 5);
-
-            // Assert
-            Assert.Equal(258.15m, toKelvin);
-        }
-
         [Fact]
         public void ConvertToCelsius()
         {
@@ -29,10 +16,10 @@ namespace unit_conversion_test.Temperature
             TemperatureConversion temp = new TemperatureConversion();
 
             // Act
-            decimal toCelcius = temp.convert(TemperatureConversion.FAHRENHEIT, TemperatureConversion.CELSIUS, 5);
+            decimal toCelcius = temp.convert(TemperatureConversion.KELVIN, TemperatureConversion.CELSIUS, 5);
 
             // Assert
-            Assert.Equal(-15m, toCelcius);
+            Assert.Equal(-268.15m, toCelcius);
         }
 
         [Fact]
@@ -42,10 +29,23 @@ namespace unit_conversion_test.Temperature
             TemperatureConversion temp = new TemperatureConversion();
 
             // Act
-            decimal toFahrenheit = temp.convert(TemperatureConversion.FAHRENHEIT, TemperatureConversion.FAHRENHEIT, 5);
+            decimal toFahrenheit = temp.convert(TemperatureConversion.KELVIN, TemperatureConversion.FAHRENHEIT, 5);
 
             // Assert
-            Assert.Equal(5m, toFahrenheit);
+            Assert.Equal(-450.67m, toFahrenheit);
+        }
+
+        [Fact]
+        public void ConvertToKelvin()
+        {
+            // Arrange
+            TemperatureConversion temp = new TemperatureConversion();
+
+            // Act
+            decimal toKelvin = temp.convert(TemperatureConversion.KELVIN, TemperatureConversion.KELVIN, 5);
+
+            // Assert
+            Assert.Equal(5m, toKelvin);
         }
     }
 }

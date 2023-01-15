@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace unit_conversion.Temperature
 {
-    internal class ConvertFromCelcius : IUnitConversion
+    internal class ConvertFromCelsius : IUnitConversion
     {
-        private Dictionary<string, Func<decimal, decimal>> MethodList = new Dictionary<string, Func<decimal, decimal>>();
+        private Dictionary<string, Func<decimal, decimal>> MethodDict = new Dictionary<string, Func<decimal, decimal>>();
 
         private void initMethodList()
         {
-            MethodList.Add(TemperatureConversion.Kelvin, (value) => { ConvertFromCelcius instance = new ConvertFromCelcius(); return instance.ConvertToKelvin(value); });
-            MethodList.Add(TemperatureConversion.Fahrenheit, (value) => { ConvertFromCelcius instance = new ConvertFromCelcius(); return instance.ConvertToFahrenheit(value); });
+            MethodDict.Add(TemperatureConversion.KELVIN, (value) => { ConvertFromCelsius instance = new ConvertFromCelsius(); return instance.ConvertToKelvin(value); });
+            MethodDict.Add(TemperatureConversion.FAHRENHEIT, (value) => { ConvertFromCelsius instance = new ConvertFromCelsius(); return instance.ConvertToFahrenheit(value); });
         }
         public decimal convert(string convertTo, decimal value)
         {
@@ -21,9 +21,9 @@ namespace unit_conversion.Temperature
 
             decimal convertedValue = 0m;
 
-            if (MethodList.ContainsKey(convertTo)) 
+            if (MethodDict.ContainsKey(convertTo)) 
             {
-                convertedValue = MethodList[convertTo](value);
+                convertedValue = MethodDict[convertTo](value);
             }
             else
             {

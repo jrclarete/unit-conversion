@@ -8,22 +8,30 @@ namespace unit_conversion.Temperature
 {
     public class TemperatureConversion
     {
-        private Dictionary<string, Type> UnitList = new Dictionary<string, Type>();
-        public static string Celcius { get; } = "Celcius";
-        public static string Fahrenheit { get; } = "Fahrenheit";
-        public static string Kelvin { get; } = "Kelvin";
+        private Dictionary<string, Type> UnitDict = new Dictionary<string, Type>();
+        public static string CELSIUS { get; } = "Celsius";
+        public static string FAHRENHEIT { get; } = "Fahrenheit";
+        public static string KELVIN { get; } = "Kelvin";
 
         public TemperatureConversion()
         {
-            UnitList.Add(Celcius, typeof(ConvertFromCelcius));
-            UnitList.Add(Fahrenheit, typeof(ConvertFromFahrenheit));
+            UnitDict.Add(CELSIUS, typeof(ConvertFromCelsius));
+            UnitDict.Add(FAHRENHEIT, typeof(ConvertFromFahrenheit));
+            UnitDict.Add(KELVIN, typeof(ConvertFromKelvin));
         }
 
-        public decimal convert(string convertFrom, string converTo, decimal value)
+        /// <summary>
+        /// Method to convert value of one unit to other.
+        /// </summary>
+        /// <param name="convertFrom">Unit to convert from.</param>
+        /// <param name="convertTo">Unit to convert to.</param>
+        /// <param name="value">Value to convert.</param>
+        /// <returns>Converted unit.</returns>
+        public decimal convert(string convertFrom, string convertTo, decimal value)
         {
-            IUnitConversion temperatureConversion = (IUnitConversion)Activator.CreateInstance(UnitList[convertFrom])!;
+            IUnitConversion temperatureConversion = (IUnitConversion)Activator.CreateInstance(UnitDict[convertFrom])!;
 
-            return temperatureConversion.convert(converTo, value);
+            return temperatureConversion.convert(convertTo, value);
         }
     }
 }
