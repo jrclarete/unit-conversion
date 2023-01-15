@@ -15,6 +15,9 @@ namespace unit_conversion.Length
         public static string CENTIMETER { get; } = "Centimeter";
         public static string METER { get; } = "Meter";
         public static string KILOMETER { get; } = "Kilometer";
+        public static string INCH { get; } = "Inch";
+        public static string FOOT { get; } = "Foot";
+        public static string YARD { get; } = "Yard";
 
         public LengthConversion()
         {
