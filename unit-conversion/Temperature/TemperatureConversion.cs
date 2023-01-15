@@ -16,6 +16,7 @@ namespace unit_conversion.Temperature
         public TemperatureConversion()
         {
             UnitList.Add(Celcius, typeof(ConvertFromCelcius));
+            UnitList.Add(Fahrenheit, typeof(ConvertFromFahrenheit));
         }
 
         public decimal convert(string convertFrom, string converTo, decimal value)

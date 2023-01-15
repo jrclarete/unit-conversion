@@ -7,7 +7,7 @@ using unit_conversion.Temperature;
 
 namespace unit_conversion_test.Temperature
 {
-    public class UnitCelciusTest
+    public class UnitFahrenheitTest
     {
         [Fact]
         public void ConvertToKelvin()
@@ -16,23 +16,10 @@ namespace unit_conversion_test.Temperature
             TemperatureConversion temp = new TemperatureConversion();
 
             // Act
-            decimal toKelvin = temp.convert(TemperatureConversion.Celcius, TemperatureConversion.Kelvin, 5);
+            decimal toKelvin = temp.convert(TemperatureConversion.Fahrenheit, TemperatureConversion.Kelvin, 5);
 
             // Assert
-            Assert.Equal(278.15m, toKelvin);
-        }
-
-        [Fact]
-        public void ConvertToFahrenheit()
-        {
-            // Arrange
-            TemperatureConversion temp = new TemperatureConversion();
-
-            // Act
-            decimal toFahrenheit = temp.convert(TemperatureConversion.Celcius, TemperatureConversion.Fahrenheit, 5);
-
-            // Assert
-            Assert.Equal(41m, toFahrenheit);
+            Assert.Equal(258.15m, toKelvin);
         }
 
         [Fact]
@@ -42,7 +29,20 @@ namespace unit_conversion_test.Temperature
             TemperatureConversion temp = new TemperatureConversion();
 
             // Act
-            decimal toFahrenheit = temp.convert(TemperatureConversion.Celcius, TemperatureConversion.Celcius, 5);
+            decimal toCelcius = temp.convert(TemperatureConversion.Fahrenheit, TemperatureConversion.Celcius, 5);
+
+            // Assert
+            Assert.Equal(-15m, toCelcius);
+        }
+
+        [Fact]
+        public void ConvertToFahrenheit()
+        {
+            // Arrange
+            TemperatureConversion temp = new TemperatureConversion();
+
+            // Act
+            decimal toFahrenheit = temp.convert(TemperatureConversion.Fahrenheit, TemperatureConversion.Fahrenheit, 5);
 
             // Assert
             Assert.Equal(5m, toFahrenheit);
