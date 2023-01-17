@@ -21,8 +21,9 @@ namespace unit_conversion.Length
 
         public LengthConversion()
         {
-            UnitDict.Add(METER, typeof(ConvertFromMeter));
             UnitDict.Add(MILLIMETER, typeof(ConvertFromMillimeter));
+            UnitDict.Add(CENTIMETER, typeof(ConvertFromMillimeter));
+            UnitDict.Add(METER, typeof(ConvertFromMeter));
         }
 
         /// <summary>
