@@ -11,7 +11,7 @@ namespace unit_conversion.Conversions.Temperature
     {
         private Dictionary<string, Func<decimal, decimal>> MethodDict = new Dictionary<string, Func<decimal, decimal>>();
 
-        private void initMethodList()
+        private void initMethodDict()
         {
             MethodDict.Add(UnitOfTemperature.KELVIN, (value) => { FahrenheitConversion instance = new FahrenheitConversion(); return instance.ConvertToKelvin(value); });
             MethodDict.Add(UnitOfTemperature.CELSIUS, (value) => { FahrenheitConversion instance = new FahrenheitConversion(); return instance.ConvertToCelsius(value); });
@@ -19,7 +19,7 @@ namespace unit_conversion.Conversions.Temperature
 
         public decimal convert(string convertTo, decimal value)
         {
-            initMethodList();
+            initMethodDict();
 
             decimal convertedValue = 0m;
 

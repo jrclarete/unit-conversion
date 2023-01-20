@@ -11,7 +11,7 @@ namespace unit_conversion.Conversions.Length
     {
         private Dictionary<string, Func<decimal, decimal>> MethodDict = new Dictionary<string, Func<decimal, decimal>>();
 
-        private void initMethodList()
+        private void initMethodDict()
         {
             MethodDict.Add(UnitOfLength.MILLIMETER, (value) => { CentimeterConversion instance = new CentimeterConversion(); return instance.ConvertToMillimeter(value); });
             MethodDict.Add(UnitOfLength.METER, (value) => { CentimeterConversion instance = new CentimeterConversion(); return instance.ConvertToMeter(value); });
@@ -22,7 +22,7 @@ namespace unit_conversion.Conversions.Length
         }
         public decimal convert(string convertTo, decimal value)
         {
-            initMethodList();
+            initMethodDict();
 
             decimal convertedValue = 0m;
 
