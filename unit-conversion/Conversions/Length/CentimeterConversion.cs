@@ -11,19 +11,18 @@ namespace unit_conversion.Conversions.Length
     {
         private Dictionary<string, Func<decimal, decimal>> MethodDict = new Dictionary<string, Func<decimal, decimal>>();
 
-        private void initMethodDict()
+        public CentimeterConversion()
         {
-            MethodDict.Add(UnitOfLength.MILLIMETER, (value) => { CentimeterConversion instance = new CentimeterConversion(); return instance.ConvertToMillimeter(value); });
-            MethodDict.Add(UnitOfLength.METER, (value) => { CentimeterConversion instance = new CentimeterConversion(); return instance.ConvertToMeter(value); });
-            MethodDict.Add(UnitOfLength.KILOMETER, (value) => { CentimeterConversion instance = new CentimeterConversion(); return instance.ConvertToKilometer(value); });
-            MethodDict.Add(UnitOfLength.INCH, (value) => { CentimeterConversion instance = new CentimeterConversion(); return instance.ConvertToInch(value); });
-            MethodDict.Add(UnitOfLength.FOOT, (value) => { CentimeterConversion instance = new CentimeterConversion(); return instance.ConvertToFoot(value); });
-            MethodDict.Add(UnitOfLength.YARD, (value) => { CentimeterConversion instance = new CentimeterConversion(); return instance.ConvertToYard(value); });
+            MethodDict.Add(UnitOfLength.MILLIMETER, (value) => ConvertToMillimeter(value));
+            MethodDict.Add(UnitOfLength.METER, (value) => ConvertToMeter(value));
+            MethodDict.Add(UnitOfLength.KILOMETER, (value) => ConvertToKilometer(value));
+            MethodDict.Add(UnitOfLength.INCH, (value) => ConvertToInch(value));
+            MethodDict.Add(UnitOfLength.FOOT, (value) => ConvertToFoot(value));
+            MethodDict.Add(UnitOfLength.YARD, (value) => ConvertToYard(value));
         }
+
         public decimal convert(string convertTo, decimal value)
         {
-            initMethodDict();
-
             decimal convertedValue = 0m;
 
             if (MethodDict.ContainsKey(convertTo))

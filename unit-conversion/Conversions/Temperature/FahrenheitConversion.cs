@@ -11,16 +11,14 @@ namespace unit_conversion.Conversions.Temperature
     {
         private Dictionary<string, Func<decimal, decimal>> MethodDict = new Dictionary<string, Func<decimal, decimal>>();
 
-        private void initMethodDict()
+        public FahrenheitConversion()
         {
-            MethodDict.Add(UnitOfTemperature.KELVIN, (value) => { FahrenheitConversion instance = new FahrenheitConversion(); return instance.ConvertToKelvin(value); });
-            MethodDict.Add(UnitOfTemperature.CELSIUS, (value) => { FahrenheitConversion instance = new FahrenheitConversion(); return instance.ConvertToCelsius(value); });
+            MethodDict.Add(UnitOfTemperature.KELVIN, (value) => ConvertToKelvin(value));
+            MethodDict.Add(UnitOfTemperature.CELSIUS, (value) => ConvertToCelsius(value));
         }
 
         public decimal convert(string convertTo, decimal value)
         {
-            initMethodDict();
-
             decimal convertedValue = 0m;
 
             if (MethodDict.ContainsKey(convertTo))

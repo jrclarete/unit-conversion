@@ -11,6 +11,7 @@ namespace unit_conversion
     public class UnitOfTemperature
     {
         private Dictionary<string, Type> UnitDict = new Dictionary<string, Type>();
+
         public static string CELSIUS { get; } = "Celsius";
         public static string FAHRENHEIT { get; } = "Fahrenheit";
         public static string KELVIN { get; } = "Kelvin";
