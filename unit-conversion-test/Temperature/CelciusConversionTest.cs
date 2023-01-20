@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using unit_conversion.Temperature;
+using unit_conversion;
 
 namespace unit_conversion_test.Temperature
 {
-    public class UnitCelciusTest
+    public class CelciusConversionTest
     {
         [Fact]
         public void ConvertToKelvin()
         {
             // Arrange
-            TemperatureConversion temp = new TemperatureConversion();
+            UnitOfTemperature temp = new UnitOfTemperature();
 
             // Act
-            decimal toKelvin = temp.convert(TemperatureConversion.CELSIUS, TemperatureConversion.KELVIN, 5);
+            decimal toKelvin = temp.convert(UnitOfTemperature.CELSIUS, UnitOfTemperature.KELVIN, 5);
 
             // Assert
             Assert.Equal(278.15m, toKelvin);
@@ -26,10 +26,10 @@ namespace unit_conversion_test.Temperature
         public void ConvertToFahrenheit()
         {
             // Arrange
-            TemperatureConversion temp = new TemperatureConversion();
+            UnitOfTemperature temp = new UnitOfTemperature();
 
             // Act
-            decimal toFahrenheit = temp.convert(TemperatureConversion.CELSIUS, TemperatureConversion.FAHRENHEIT, 5);
+            decimal toFahrenheit = temp.convert(UnitOfTemperature.CELSIUS, UnitOfTemperature.FAHRENHEIT, 5);
 
             // Assert
             Assert.Equal(41m, toFahrenheit);
@@ -39,10 +39,10 @@ namespace unit_conversion_test.Temperature
         public void ConvertToCelsius()
         {
             // Arrange
-            TemperatureConversion temp = new TemperatureConversion();
+            UnitOfTemperature temp = new UnitOfTemperature();
 
             // Act
-            decimal toFahrenheit = temp.convert(TemperatureConversion.CELSIUS, TemperatureConversion.CELSIUS, 5);
+            decimal toFahrenheit = temp.convert(UnitOfTemperature.CELSIUS, UnitOfTemperature.CELSIUS, 5);
 
             // Assert
             Assert.Equal(5m, toFahrenheit);

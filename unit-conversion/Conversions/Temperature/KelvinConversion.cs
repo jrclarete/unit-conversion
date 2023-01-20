@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using unit_conversion.Conversions;
 
-namespace unit_conversion.Temperature
+namespace unit_conversion.Conversions.Temperature
 {
-    internal class ConvertFromFahrenheit : IUnitConversion
+    internal class KelvinConversion : IUnitConversion
     {
         private Dictionary<string, Func<decimal, decimal>> MethodDict = new Dictionary<string, Func<decimal, decimal>>();
 
         private void initMethodList()
         {
-            MethodDict.Add(TemperatureConversion.KELVIN, (value) => { ConvertFromFahrenheit instance = new ConvertFromFahrenheit(); return instance.ConvertToKelvin(value); });
-            MethodDict.Add(TemperatureConversion.CELSIUS, (value) => { ConvertFromFahrenheit instance = new ConvertFromFahrenheit(); return instance.ConvertToCelsius(value); });
+            MethodDict.Add(UnitOfTemperature.CELSIUS, (value) => { KelvinConversion instance = new KelvinConversion(); return instance.ConvertToCelsius(value); });
+            MethodDict.Add(UnitOfTemperature.FAHRENHEIT, (value) => { KelvinConversion instance = new KelvinConversion(); return instance.ConvertToFahrenheit(value); });
         }
 
         public decimal convert(string convertTo, decimal value)
@@ -34,14 +35,14 @@ namespace unit_conversion.Temperature
             return convertedValue;
         }
 
-        private decimal ConvertToKelvin(decimal value)
-        {
-            return (((value - 32m) * 5m) / 9m) + 273.15m;
-        }
-
         private decimal ConvertToCelsius(decimal value)
         {
-            return (((value - 32m) * 5m) / 9m);
+            return value - 273.15m;
+        }
+
+        private decimal ConvertToFahrenheit(decimal value)
+        {
+            return value * 9m / 5m - 459.67m;
         }
     }
 }

@@ -3,21 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using unit_conversion.Conversions;
+using unit_conversion.Conversions.Temperature;
 
-namespace unit_conversion.Temperature
+namespace unit_conversion
 {
-    public class TemperatureConversion
+    public class UnitOfTemperature
     {
         private Dictionary<string, Type> UnitDict = new Dictionary<string, Type>();
         public static string CELSIUS { get; } = "Celsius";
         public static string FAHRENHEIT { get; } = "Fahrenheit";
         public static string KELVIN { get; } = "Kelvin";
 
-        public TemperatureConversion()
+        public UnitOfTemperature()
         {
-            UnitDict.Add(CELSIUS, typeof(ConvertFromCelsius));
-            UnitDict.Add(FAHRENHEIT, typeof(ConvertFromFahrenheit));
-            UnitDict.Add(KELVIN, typeof(ConvertFromKelvin));
+            UnitDict.Add(CELSIUS, typeof(CelsiusConversion));
+            UnitDict.Add(FAHRENHEIT, typeof(FahrenheitConversion));
+            UnitDict.Add(KELVIN, typeof(KelvinConversion));
         }
 
         /// <summary>

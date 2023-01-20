@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace unit_conversion
+namespace unit_conversion.Conversions
 {
     internal interface IUnitConversion
     {

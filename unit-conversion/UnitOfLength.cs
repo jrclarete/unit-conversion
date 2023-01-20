@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using unit_conversion.Temperature;
+using unit_conversion.Conversions;
+using unit_conversion.Conversions.Length;
 
-namespace unit_conversion.Length
+namespace unit_conversion
 {
-    public class LengthConversion
+    public class UnitOfLength
     {
         private Dictionary<string, Type> UnitDict = new Dictionary<string, Type>();
 
@@ -19,11 +20,11 @@ namespace unit_conversion.Length
         public static string FOOT { get; } = "Foot";
         public static string YARD { get; } = "Yard";
 
-        public LengthConversion()
+        public UnitOfLength()
         {
-            UnitDict.Add(MILLIMETER, typeof(ConvertFromMillimeter));
-            UnitDict.Add(CENTIMETER, typeof(ConvertFromCentimeter));
-            UnitDict.Add(METER, typeof(ConvertFromMeter));
+            UnitDict.Add(MILLIMETER, typeof(MillimeterConversion));
+            UnitDict.Add(CENTIMETER, typeof(CentimeterConversion));
+            UnitDict.Add(METER, typeof(MeterConversion));
         }
 
         /// <summary>

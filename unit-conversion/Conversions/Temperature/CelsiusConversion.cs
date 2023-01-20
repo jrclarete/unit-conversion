@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using unit_conversion.Conversions;
 
-namespace unit_conversion.Temperature
+namespace unit_conversion.Conversions.Temperature
 {
-    internal class ConvertFromCelsius : IUnitConversion
+    internal class CelsiusConversion : IUnitConversion
     {
         private Dictionary<string, Func<decimal, decimal>> MethodDict = new Dictionary<string, Func<decimal, decimal>>();
 
         private void initMethodList()
         {
-            MethodDict.Add(TemperatureConversion.KELVIN, (value) => { ConvertFromCelsius instance = new ConvertFromCelsius(); return instance.ConvertToKelvin(value); });
-            MethodDict.Add(TemperatureConversion.FAHRENHEIT, (value) => { ConvertFromCelsius instance = new ConvertFromCelsius(); return instance.ConvertToFahrenheit(value); });
+            MethodDict.Add(UnitOfTemperature.KELVIN, (value) => { CelsiusConversion instance = new CelsiusConversion(); return instance.ConvertToKelvin(value); });
+            MethodDict.Add(UnitOfTemperature.FAHRENHEIT, (value) => { CelsiusConversion instance = new CelsiusConversion(); return instance.ConvertToFahrenheit(value); });
         }
         public decimal convert(string convertTo, decimal value)
         {
@@ -21,7 +22,7 @@ namespace unit_conversion.Temperature
 
             decimal convertedValue = 0m;
 
-            if (MethodDict.ContainsKey(convertTo)) 
+            if (MethodDict.ContainsKey(convertTo))
             {
                 convertedValue = MethodDict[convertTo](value);
             }
@@ -30,7 +31,7 @@ namespace unit_conversion.Temperature
                 convertedValue = value;
             }
 
-            return convertedValue; 
+            return convertedValue;
         }
 
         private decimal ConvertToKelvin(decimal value)
@@ -40,7 +41,7 @@ namespace unit_conversion.Temperature
 
         private decimal ConvertToFahrenheit(decimal value)
         {
-            return (value * 1.8m) + 32m;
+            return value * 1.8m + 32m;
         }
     }
 }

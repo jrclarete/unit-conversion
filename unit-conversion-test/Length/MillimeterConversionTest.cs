@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using unit_conversion.Length;
+using unit_conversion;
 
 namespace unit_conversion_test.Length
 {
-    public class ConvertFromMillimeterTest
+    public class MillimeterConversionTest
     {
         [Fact]
         public void ConvertToCentimeter()
         {
             // Arrange
-            LengthConversion length = new LengthConversion();
+            UnitOfLength length = new UnitOfLength();
 
             // Act
-            decimal toCentimeter = length.convert(LengthConversion.MILLIMETER, LengthConversion.CENTIMETER, 5);
+            decimal toCentimeter = length.convert(UnitOfLength.MILLIMETER, UnitOfLength.CENTIMETER, 5);
 
             // Assert
             Assert.Equal(0.5m, toCentimeter);
@@ -26,10 +26,10 @@ namespace unit_conversion_test.Length
         public void ConvertToMeter()
         {
             // Arrange
-            LengthConversion length = new LengthConversion();
+            UnitOfLength length = new UnitOfLength();
 
             // Act
-            decimal toMeter = length.convert(LengthConversion.MILLIMETER, LengthConversion.METER, 5);
+            decimal toMeter = length.convert(UnitOfLength.MILLIMETER, UnitOfLength.METER, 5);
 
             // Assert
             Assert.Equal(0.005m, toMeter);
@@ -39,10 +39,10 @@ namespace unit_conversion_test.Length
         public void ConvertToKilometer()
         {
             // Arrange
-            LengthConversion length = new LengthConversion();
+            UnitOfLength length = new UnitOfLength();
 
             // Act
-            decimal toKilometer = length.convert(LengthConversion.MILLIMETER, LengthConversion.KILOMETER, 5);
+            decimal toKilometer = length.convert(UnitOfLength.MILLIMETER, UnitOfLength.KILOMETER, 5);
 
             // Assert
             Assert.Equal(0.000005m, toKilometer);
@@ -52,10 +52,10 @@ namespace unit_conversion_test.Length
         public void ConvertToInch()
         {
             // Arrange
-            LengthConversion length = new LengthConversion();
+            UnitOfLength length = new UnitOfLength();
 
             // Act
-            decimal toInch = length.convert(LengthConversion.MILLIMETER, LengthConversion.INCH, 5);
+            decimal toInch = length.convert(UnitOfLength.MILLIMETER, UnitOfLength.INCH, 5);
 
             // Assert
             Assert.Equal(0.1968503937007874015748031496m, toInch);
@@ -65,10 +65,10 @@ namespace unit_conversion_test.Length
         public void ConvertToFoot()
         {
             // Arrange
-            LengthConversion length = new LengthConversion();
+            UnitOfLength length = new UnitOfLength();
 
             // Act
-            decimal toFoot = length.convert(LengthConversion.MILLIMETER, LengthConversion.FOOT, 5);
+            decimal toFoot = length.convert(UnitOfLength.MILLIMETER, UnitOfLength.FOOT, 5);
 
             // Assert
             Assert.Equal(0.0164041994750656167979002625m, toFoot);
@@ -78,10 +78,10 @@ namespace unit_conversion_test.Length
         public void ConvertToYard()
         {
             // Arrange
-            LengthConversion length = new LengthConversion();
+            UnitOfLength length = new UnitOfLength();
 
             // Act
-            decimal toYard = length.convert(LengthConversion.MILLIMETER, LengthConversion.YARD, 5);
+            decimal toYard = length.convert(UnitOfLength.MILLIMETER, UnitOfLength.YARD, 5);
 
             // Assert
             Assert.Equal(0.0054680664916885389326334208m, toYard);
@@ -91,10 +91,10 @@ namespace unit_conversion_test.Length
         public void ConvertToMillimeter()
         {
             // Arrange
-            LengthConversion length = new LengthConversion();
+            UnitOfLength length = new UnitOfLength();
 
             // Act
-            decimal toCentimeter = length.convert(LengthConversion.MILLIMETER, LengthConversion.MILLIMETER, 5);
+            decimal toCentimeter = length.convert(UnitOfLength.MILLIMETER, UnitOfLength.MILLIMETER, 5);
 
             // Assert
             Assert.Equal(5m, toCentimeter);
