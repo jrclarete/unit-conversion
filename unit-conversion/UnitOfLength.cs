@@ -25,6 +25,7 @@ namespace unit_conversion
             UnitDict.Add(MILLIMETER, typeof(MillimeterConversion));
             UnitDict.Add(CENTIMETER, typeof(CentimeterConversion));
             UnitDict.Add(METER, typeof(MeterConversion));
+            UnitDict.Add(KILOMETER, typeof(KilometerConversion));
         }
 
         /// <summary>
