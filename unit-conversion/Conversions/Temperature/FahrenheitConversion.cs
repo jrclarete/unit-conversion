@@ -4,20 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using unit_conversion.Conversions;
+using unit_conversion.Enums;
 
 namespace unit_conversion.Conversions.Temperature
 {
-    internal class FahrenheitConversion : IUnitConversion
+    internal class FahrenheitConversion : IUnitConversion<TemperatureUnit>
     {
-        private Dictionary<string, Func<decimal, decimal>> MethodDict = new Dictionary<string, Func<decimal, decimal>>();
+        private Dictionary<TemperatureUnit, Func<decimal, decimal>> MethodDict = new Dictionary<TemperatureUnit, Func<decimal, decimal>>();
 
         public FahrenheitConversion()
         {
-            MethodDict.Add(UnitOfTemperature.KELVIN, (value) => ConvertToKelvin(value));
-            MethodDict.Add(UnitOfTemperature.CELSIUS, (value) => ConvertToCelsius(value));
+            MethodDict.Add(TemperatureUnit.KELVIN, (value) => ConvertToKelvin(value));
+            MethodDict.Add(TemperatureUnit.CELSIUS, (value) => ConvertToCelsius(value));
         }
 
-        public decimal convert(string convertTo, decimal value)
+        public decimal convert(TemperatureUnit convertTo, decimal value)
         {
             decimal convertedValue = 0m;
 

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace unit_conversion.Conversions
 {
-    internal interface IUnitConversion
+    internal interface IUnitConversion<T> where T : Enum
     {
-        decimal convert(string convertTo, decimal value);
+        decimal convert(T convertTo, decimal value);
     }
 }
