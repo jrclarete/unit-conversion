@@ -19,6 +19,7 @@ namespace unit_conversion
             UnitDict.Add(LengthUnit.CENTIMETER, typeof(CentimeterConversion));
             UnitDict.Add(LengthUnit.METER, typeof(MeterConversion));
             UnitDict.Add(LengthUnit.KILOMETER, typeof(KilometerConversion));
+            UnitDict.Add(LengthUnit.INCH, typeof(KilometerConversion));
         }
 
         /// <summary>
