@@ -29,7 +29,7 @@ namespace unit_conversion
         /// <returns>Converted unit.</returns>
         public decimal convert(TemperatureUnit convertFrom, TemperatureUnit convertTo, decimal value)
         {
-            decimal convertedValue = 0.0m;
+            decimal convertedValue = 0m;
 
             try
             {
