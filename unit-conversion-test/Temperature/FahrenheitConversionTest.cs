@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using unit_conversion;
+using unit_conversion.Enums;
 
 namespace unit_conversion_test.Temperature
 {
@@ -16,7 +17,7 @@ namespace unit_conversion_test.Temperature
             TemperatureConversion temp = new TemperatureConversion();
 
             // Act
-            decimal toKelvin = temp.convert(TemperatureConversion.FAHRENHEIT, TemperatureConversion.KELVIN, 5);
+            decimal toKelvin = temp.convert(TemperatureUnit.FAHRENHEIT, TemperatureUnit.KELVIN, 5);
 
             // Assert
             Assert.Equal(258.15m, toKelvin);
@@ -29,7 +30,7 @@ namespace unit_conversion_test.Temperature
             TemperatureConversion temp = new TemperatureConversion();
 
             // Act
-            decimal toCelcius = temp.convert(TemperatureConversion.FAHRENHEIT, TemperatureConversion.CELSIUS, 5);
+            decimal toCelcius = temp.convert(TemperatureUnit.FAHRENHEIT, TemperatureUnit.CELSIUS, 5);
 
             // Assert
             Assert.Equal(-15m, toCelcius);
@@ -42,7 +43,7 @@ namespace unit_conversion_test.Temperature
             TemperatureConversion temp = new TemperatureConversion();
 
             // Act
-            decimal toFahrenheit = temp.convert(TemperatureConversion.FAHRENHEIT, TemperatureConversion.FAHRENHEIT, 5);
+            decimal toFahrenheit = temp.convert(TemperatureUnit.FAHRENHEIT, TemperatureUnit.FAHRENHEIT, 5);
 
             // Assert
             Assert.Equal(5m, toFahrenheit);
