@@ -20,6 +20,7 @@ namespace unit_conversion
             UnitDict.Add(LengthUnit.METER, typeof(MeterConversion));
             UnitDict.Add(LengthUnit.KILOMETER, typeof(KilometerConversion));
             UnitDict.Add(LengthUnit.INCH, typeof(InchConversion));
+            UnitDict.Add(LengthUnit.FOOT, typeof(FootConversion));
         }
 
         /// <summary>
