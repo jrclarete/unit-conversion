@@ -13,11 +13,8 @@ namespace unit_conversion_test.Temperature
         [Fact]
         public void ConvertToKelvin()
         {
-            // Arrange
-            TemperatureConversion temp = new TemperatureConversion();
-
             // Act
-            decimal toKelvin = temp.convert(TemperatureUnit.FAHRENHEIT, TemperatureUnit.KELVIN, 5);
+            decimal toKelvin = TemperatureConversion.convert(TemperatureUnit.FAHRENHEIT, TemperatureUnit.KELVIN, 5);
 
             // Assert
             Assert.Equal(258.15m, toKelvin);
@@ -26,11 +23,8 @@ namespace unit_conversion_test.Temperature
         [Fact]
         public void ConvertToCelsius()
         {
-            // Arrange
-            TemperatureConversion temp = new TemperatureConversion();
-
             // Act
-            decimal toCelcius = temp.convert(TemperatureUnit.FAHRENHEIT, TemperatureUnit.CELSIUS, 5);
+            decimal toCelcius = TemperatureConversion.convert(TemperatureUnit.FAHRENHEIT, TemperatureUnit.CELSIUS, 5);
 
             // Assert
             Assert.Equal(-15m, toCelcius);
@@ -39,11 +33,8 @@ namespace unit_conversion_test.Temperature
         [Fact]
         public void ConvertToFahrenheit()
         {
-            // Arrange
-            TemperatureConversion temp = new TemperatureConversion();
-
             // Act
-            decimal toFahrenheit = temp.convert(TemperatureUnit.FAHRENHEIT, TemperatureUnit.FAHRENHEIT, 5);
+            decimal toFahrenheit = TemperatureConversion.convert(TemperatureUnit.FAHRENHEIT, TemperatureUnit.FAHRENHEIT, 5);
 
             // Assert
             Assert.Equal(5m, toFahrenheit);
