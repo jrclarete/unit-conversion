@@ -8,19 +8,16 @@ using unit_conversion.Enums;
 
 namespace unit_conversion.Conversions.Temperature
 {
-    internal class CelsiusConversion : IUnitConversion<TemperatureUnit>
+    internal class CelsiusConversion
     {
-        private Dictionary<TemperatureUnit, Func<decimal, decimal>> MethodDict = new Dictionary<TemperatureUnit, Func<decimal, decimal>>();
-
-        public CelsiusConversion()
+        private static Dictionary<TemperatureUnit, Func<decimal, decimal>> MethodDict = new Dictionary<TemperatureUnit, Func<decimal, decimal>>()
         {
             //MethodDict.Add(UnitOfTemperature.KELVIN, (value) => { CelsiusConversion instance = new CelsiusConversion(); return instance.ConvertToKelvin(value); });
-            //MethodDict.Add(UnitOfTemperature.FAHRENHEIT, (value) => { CelsiusConversion instance = new CelsiusConversion(); return instance.ConvertToFahrenheit(value); });
-            MethodDict.Add(TemperatureUnit.KELVIN, (value) => ConvertToKelvin(value));
-            MethodDict.Add(TemperatureUnit.FAHRENHEIT, (value) => ConvertToFahrenheit(value));
-        }
+            { TemperatureUnit.KELVIN, (value) => ConvertToKelvin(value) },
+            { TemperatureUnit.FAHRENHEIT, (value) => ConvertToFahrenheit(value) }
+        };
 
-        public decimal convert(TemperatureUnit convertTo, decimal value)
+        public static decimal convert(TemperatureUnit convertTo, decimal value)
         {
             decimal convertedValue = 0m;
 
@@ -36,12 +33,12 @@ namespace unit_conversion.Conversions.Temperature
             return convertedValue;
         }
 
-        private decimal ConvertToKelvin(decimal value)
+        private static decimal ConvertToKelvin(decimal value)
         {
             return value + 273.15m;
         }
 
-        private decimal ConvertToFahrenheit(decimal value)
+        private static decimal ConvertToFahrenheit(decimal value)
         {
             return value * 1.8m + 32m;
         }

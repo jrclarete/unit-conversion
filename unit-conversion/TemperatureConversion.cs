@@ -11,14 +11,12 @@ namespace unit_conversion
 {
     public class TemperatureConversion
     {
-        private Dictionary<TemperatureUnit, Type> UnitDict = new Dictionary<TemperatureUnit, Type>();
-
-        public TemperatureConversion()
+        private static Dictionary<TemperatureUnit, Func<TemperatureUnit, decimal, decimal>> UnitDict = new Dictionary<TemperatureUnit, Func<TemperatureUnit, decimal, decimal>>()
         {
-            UnitDict.Add(TemperatureUnit.CELSIUS, typeof(CelsiusConversion));
-            UnitDict.Add(TemperatureUnit.FAHRENHEIT, typeof(FahrenheitConversion));
-            UnitDict.Add(TemperatureUnit.KELVIN, typeof(KelvinConversion));
-        }
+            { TemperatureUnit.CELSIUS, (convertTo, value) => CelsiusConversion.convert(convertTo, value) },
+            { TemperatureUnit.FAHRENHEIT, (convertTo, value) => FahrenheitConversion.convert(convertTo, value) },
+            { TemperatureUnit.KELVIN, (convertTo, value) => KelvinConversion.convert(convertTo, value) }
+        };
 
         /// <summary>
         /// Method to convert value of one unit to other.
@@ -27,17 +25,17 @@ namespace unit_conversion
         /// <param name="convertTo">Unit to convert to.</param>
         /// <param name="value">Value to convert.</param>
         /// <returns>Converted unit.</returns>
-        public decimal convert(TemperatureUnit convertFrom, TemperatureUnit convertTo, decimal value)
+        public static decimal convert(TemperatureUnit convertFrom, TemperatureUnit convertTo, decimal value)
         {
             decimal convertedValue = 0m;
 
             try
             {
-                IUnitConversion<TemperatureUnit> temperatureConversion = (IUnitConversion<TemperatureUnit>)Activator.CreateInstance(UnitDict[convertFrom])!;
-                convertedValue = temperatureConversion.convert(convertTo, value);
+                convertedValue = UnitDict[convertFrom](convertTo, value);
             }
             catch (Exception ex)
             {
+
                 Console.WriteLine(ex.ToString());
             }
 

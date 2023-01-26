@@ -8,17 +8,15 @@ using unit_conversion.Enums;
 
 namespace unit_conversion.Conversions.Temperature
 {
-    internal class FahrenheitConversion : IUnitConversion<TemperatureUnit>
+    internal class FahrenheitConversion
     {
-        private Dictionary<TemperatureUnit, Func<decimal, decimal>> MethodDict = new Dictionary<TemperatureUnit, Func<decimal, decimal>>();
-
-        public FahrenheitConversion()
+        private static Dictionary<TemperatureUnit, Func<decimal, decimal>> MethodDict = new Dictionary<TemperatureUnit, Func<decimal, decimal>>()
         {
-            MethodDict.Add(TemperatureUnit.KELVIN, (value) => ConvertToKelvin(value));
-            MethodDict.Add(TemperatureUnit.CELSIUS, (value) => ConvertToCelsius(value));
-        }
+            { TemperatureUnit.KELVIN, (value) => ConvertToKelvin(value) },
+            { TemperatureUnit.CELSIUS, (value) => ConvertToCelsius(value) }
+        };
 
-        public decimal convert(TemperatureUnit convertTo, decimal value)
+        public static decimal convert(TemperatureUnit convertTo, decimal value)
         {
             decimal convertedValue = 0m;
 
@@ -34,12 +32,12 @@ namespace unit_conversion.Conversions.Temperature
             return convertedValue;
         }
 
-        private decimal ConvertToKelvin(decimal value)
+        private static decimal ConvertToKelvin(decimal value)
         {
             return (value - 32m) * 5m / 9m + 273.15m;
         }
 
-        private decimal ConvertToCelsius(decimal value)
+        private static decimal ConvertToCelsius(decimal value)
         {
             return (value - 32m) * 5m / 9m;
         }
