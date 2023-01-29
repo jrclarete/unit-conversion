@@ -5,23 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using unit_conversion.Conversions;
 using unit_conversion.Conversions.Length;
+using unit_conversion.Conversions.Temperature;
 using unit_conversion.Enums;
 
 namespace unit_conversion
 {
     public class LengthConversion
     {
-        private Dictionary<LengthUnit, Type> UnitDict = new Dictionary<LengthUnit, Type>();
-
-        public LengthConversion()
+        private static Dictionary<LengthUnit, Func<LengthUnit, decimal, decimal>> UnitDict = new Dictionary<LengthUnit, Func<LengthUnit, decimal, decimal>>()
         {
-            UnitDict.Add(LengthUnit.MILLIMETER, typeof(MillimeterConversion));
-            UnitDict.Add(LengthUnit.CENTIMETER, typeof(CentimeterConversion));
-            UnitDict.Add(LengthUnit.METER, typeof(MeterConversion));
-            UnitDict.Add(LengthUnit.KILOMETER, typeof(KilometerConversion));
-            UnitDict.Add(LengthUnit.INCH, typeof(InchConversion));
-            UnitDict.Add(LengthUnit.FOOT, typeof(FootConversion));
-        }
+            { LengthUnit.MILLIMETER, (convertTo, value) => MillimeterConversion.convert(convertTo, value) },
+            { LengthUnit.CENTIMETER, (convertTo, value) => CentimeterConversion.convert(convertTo, value) },
+            { LengthUnit.METER, (convertTo, value) => MeterConversion.convert(convertTo, value) },
+            { LengthUnit.KILOMETER, (convertTo, value) => KilometerConversion.convert(convertTo, value) },
+            { LengthUnit.INCH, (convertTo, value) => InchConversion.convert(convertTo, value) },
+            { LengthUnit.FOOT, (convertTo, value) => FootConversion.convert(convertTo, value) }
+        };
 
         /// <summary>
         /// Method to convert value of one unit to other.
@@ -30,17 +29,17 @@ namespace unit_conversion
         /// <param name="convertTo">Unit to convert to.</param>
         /// <param name="value">Value to convert.</param>
         /// <returns>Converted unit.</returns>
-        public decimal convert(LengthUnit convertFrom, LengthUnit convertTo, decimal value)
+        public static decimal convert(LengthUnit convertFrom, LengthUnit convertTo, decimal value)
         {
             decimal convertedValue = 0m;
 
             try
             {
-                IUnitConversion<LengthUnit> lengthConversion = (IUnitConversion<LengthUnit>)Activator.CreateInstance(UnitDict[convertFrom])!;
-                convertedValue = lengthConversion.convert(convertTo, value);
+                convertedValue = UnitDict[convertFrom](convertTo, value);
             }
             catch (Exception ex)
             {
+
                 Console.WriteLine(ex.ToString());
             }
 
