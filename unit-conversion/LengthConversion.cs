@@ -19,7 +19,8 @@ namespace unit_conversion
             { LengthUnit.METER, (convertTo, value) => MeterConversion.convert(convertTo, value) },
             { LengthUnit.KILOMETER, (convertTo, value) => KilometerConversion.convert(convertTo, value) },
             { LengthUnit.INCH, (convertTo, value) => InchConversion.convert(convertTo, value) },
-            { LengthUnit.FOOT, (convertTo, value) => FootConversion.convert(convertTo, value) }
+            { LengthUnit.FOOT, (convertTo, value) => FootConversion.convert(convertTo, value) },
+            { LengthUnit.YARD, (convertTo, value) => YardConversion.convert(convertTo, value) }
         };
 
         /// <summary>
