@@ -13,11 +13,8 @@ namespace unit_conversion_test.Length
         [Fact]
         public void ConvertToMillimeter()
         {
-            // Arrange
-            LengthConversion length = new LengthConversion();
-
             // Act
-            decimal toMillimeter = length.convert(LengthUnit.INCH, LengthUnit.MILLIMETER, 5);
+            decimal toMillimeter = LengthConversion.convert(LengthUnit.INCH, LengthUnit.MILLIMETER, 5);
 
             // Assert
             Assert.Equal(127m, toMillimeter);
@@ -26,11 +23,8 @@ namespace unit_conversion_test.Length
         [Fact]
         public void ConvertToCentimeter()
         {
-            // Arrange
-            LengthConversion length = new LengthConversion();
-
             // Act
-            decimal toCentimeter = length.convert(LengthUnit.INCH, LengthUnit.CENTIMETER, 5);
+            decimal toCentimeter = LengthConversion.convert(LengthUnit.INCH, LengthUnit.CENTIMETER, 5);
 
             // Assert
             Assert.Equal(12.7m, toCentimeter);
@@ -39,11 +33,8 @@ namespace unit_conversion_test.Length
         [Fact]
         public void ConvertToMeter()
         {
-            // Arrange
-            LengthConversion length = new LengthConversion();
-
             // Act
-            decimal toMeter = length.convert(LengthUnit.INCH, LengthUnit.METER, 5);
+            decimal toMeter = LengthConversion.convert(LengthUnit.INCH, LengthUnit.METER, 5);
 
             // Assert
             Assert.Equal(0.127m, toMeter);
@@ -52,11 +43,8 @@ namespace unit_conversion_test.Length
         [Fact]
         public void ConvertToKilometer()
         {
-            // Arrange
-            LengthConversion length = new LengthConversion();
-
             // Act
-            decimal toKilometer = length.convert(LengthUnit.INCH, LengthUnit.KILOMETER, 5);
+            decimal toKilometer = LengthConversion.convert(LengthUnit.INCH, LengthUnit.KILOMETER, 5);
 
             // Assert
             Assert.Equal(0.000127m, toKilometer);
@@ -65,11 +53,8 @@ namespace unit_conversion_test.Length
         [Fact]
         public void ConvertToFoot()
         {
-            // Arrange
-            LengthConversion length = new LengthConversion();
-
             // Act
-            decimal toFoot = length.convert(LengthUnit.INCH, LengthUnit.FOOT, 5);
+            decimal toFoot = LengthConversion.convert(LengthUnit.INCH, LengthUnit.FOOT, 5);
 
             // Assert
             Assert.Equal(0.4166666666666666666666666667m, toFoot);
@@ -78,11 +63,8 @@ namespace unit_conversion_test.Length
         [Fact]
         public void ConvertToYard()
         {
-            // Arrange
-            LengthConversion length = new LengthConversion();
-
             // Act
-            decimal toYard = length.convert(LengthUnit.INCH, LengthUnit.YARD, 5);
+            decimal toYard = LengthConversion.convert(LengthUnit.INCH, LengthUnit.YARD, 5);
 
             // Assert
             Assert.Equal(0.1388888888888888888888888889m, toYard);
@@ -91,11 +73,8 @@ namespace unit_conversion_test.Length
         [Fact]
         public void ConvertToInch()
         {
-            // Arrange
-            LengthConversion length = new LengthConversion();
-
             // Act
-            decimal toInch = length.convert(LengthUnit.INCH, LengthUnit.INCH, 5);
+            decimal toInch = LengthConversion.convert(LengthUnit.INCH, LengthUnit.INCH, 5);
 
             // Assert
             Assert.Equal(5m, toInch);
