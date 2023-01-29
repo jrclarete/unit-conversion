@@ -8,21 +8,19 @@ using unit_conversion.Enums;
 
 namespace unit_conversion.Conversions.Length
 {
-    internal class MeterConversion : IUnitConversion<LengthUnit>
+    internal class MeterConversion
     {
-        private Dictionary<LengthUnit, Func<decimal, decimal>> MethodDict = new Dictionary<LengthUnit, Func<decimal, decimal>>();
-
-        public MeterConversion()
+        private static Dictionary<LengthUnit, Func<decimal, decimal>> MethodDict = new Dictionary<LengthUnit, Func<decimal, decimal>>()
         {
-            MethodDict.Add(LengthUnit.MILLIMETER, (value) => ConvertToMillimeter(value));
-            MethodDict.Add(LengthUnit.CENTIMETER, (value) => ConvertToCentimeter(value));
-            MethodDict.Add(LengthUnit.KILOMETER, (value) => ConvertToKilometer(value));
-            MethodDict.Add(LengthUnit.INCH, (value) => ConvertToInch(value));
-            MethodDict.Add(LengthUnit.FOOT, (value) => ConvertToFoot(value));
-            MethodDict.Add(LengthUnit.YARD, (value) => ConvertToYard(value));
-        }
+            { LengthUnit.MILLIMETER, (value) => ConvertToMillimeter(value) },
+            { LengthUnit.CENTIMETER, (value) => ConvertToCentimeter(value) },
+            { LengthUnit.KILOMETER, (value) => ConvertToKilometer(value) },
+            { LengthUnit.INCH, (value) => ConvertToInch(value) },
+            { LengthUnit.FOOT, (value) => ConvertToFoot(value) },
+            { LengthUnit.YARD, (value) => ConvertToYard(value) }
+        };
 
-        public decimal convert(LengthUnit convertTo, decimal value)
+        public static decimal convert(LengthUnit convertTo, decimal value)
         {
             decimal convertedValue = 0m;
 
@@ -38,32 +36,32 @@ namespace unit_conversion.Conversions.Length
             return convertedValue;
         }
 
-        private decimal ConvertToMillimeter(decimal value)
+        private static decimal ConvertToMillimeter(decimal value)
         {
             return value * 1000m;
         }
 
-        private decimal ConvertToCentimeter(decimal value)
+        private static decimal ConvertToCentimeter(decimal value)
         {
             return value * 100m;
         }
 
-        private decimal ConvertToKilometer(decimal value)
+        private static decimal ConvertToKilometer(decimal value)
         {
             return value / 1000m;
         }
 
-        private decimal ConvertToInch(decimal value)
+        private static decimal ConvertToInch(decimal value)
         {
             return value / 0.0254m;
         }
 
-        private decimal ConvertToFoot(decimal value)
+        private static decimal ConvertToFoot(decimal value)
         {
             return value / 0.3048m;
         }
 
-        private decimal ConvertToYard(decimal value)
+        private static decimal ConvertToYard(decimal value)
         {
             return value / 0.9144m;
         }
