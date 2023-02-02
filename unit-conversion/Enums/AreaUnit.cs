@@ -14,8 +14,6 @@ namespace unit_conversion.Enums
         SQKILOMETER,
         SQINCH,
         SQFOOT,
-        SQYARD,
-        ACRE,
-        HECTARE
+        SQYARD
     }
 }
