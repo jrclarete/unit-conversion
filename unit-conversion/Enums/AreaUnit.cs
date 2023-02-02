@@ -8,13 +8,13 @@ namespace unit_conversion.Enums
 {
     public enum AreaUnit
     {
-        SQUAREMILLIMETER,
-        SQUARECENTIMETER,
-        SQUAREMETER,
-        SQUAREKILOMETER,
-        SQUAREINCH,
-        SQUAREFOOT,
-        SQUAREYARD,
+        SQMILLIMETER,
+        SQCENTIMETER,
+        SQMETER,
+        SQKILOMETER,
+        SQINCH,
+        SQFOOT,
+        SQYARD,
         ACRE,
         HECTARE
     }

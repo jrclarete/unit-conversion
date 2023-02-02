@@ -11,7 +11,7 @@ namespace unit_conversion.Conversions.Area
     {
         private static Dictionary<AreaUnit, Func<decimal, decimal>> MethodDict = new Dictionary<AreaUnit, Func<decimal, decimal>>()
         {
-            { AreaUnit.SQUARECENTIMETER, (value) => ConvertToSqCentimeter(value) },
+            { AreaUnit.SQCENTIMETER, (value) => ConvertToSqCentimeter(value) },
             
         };
 

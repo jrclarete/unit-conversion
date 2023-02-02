@@ -14,7 +14,7 @@ namespace unit_conversion_test.Area
         public void ConvertToSqCentimeter()
         {
             // Act
-            decimal toSqCentimeter = AreaConversion.convert(AreaUnit.SQUAREMILLIMETER, AreaUnit.SQUARECENTIMETER, 5);
+            decimal toSqCentimeter = AreaConversion.convert(AreaUnit.SQMILLIMETER, AreaUnit.SQCENTIMETER, 5);
 
             // Assert
             Assert.Equal(0.05m, toSqCentimeter);
@@ -24,7 +24,7 @@ namespace unit_conversion_test.Area
         public void ConvertToSqMillimeter()
         {
             // Act
-            decimal toSqMillimeter = AreaConversion.convert(AreaUnit.SQUAREMILLIMETER, AreaUnit.SQUAREMILLIMETER, 5);
+            decimal toSqMillimeter = AreaConversion.convert(AreaUnit.SQMILLIMETER, AreaUnit.SQMILLIMETER, 5);
 
             // Assert
             Assert.Equal(5m, toSqMillimeter);
