@@ -14,6 +14,7 @@ namespace unit_conversion.Enums
         SQKILOMETER,
         SQINCH,
         SQFOOT,
-        SQYARD
+        SQYARD,
+        SQMILE
     }
 }
