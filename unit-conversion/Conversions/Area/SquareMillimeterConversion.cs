@@ -17,7 +17,9 @@ namespace unit_conversion.Conversions.Area
             { AreaUnit.SQINCH, (value) => ConvertToSqInch(value) },
             { AreaUnit.SQFOOT, (value) => ConvertToSqFoot(value) },
             { AreaUnit.SQYARD, (value) => ConvertToSqYard(value) },
-            { AreaUnit.SQMILE, (value) => ConvertToSqMile(value) }
+            { AreaUnit.SQMILE, (value) => ConvertToSqMile(value) },
+            { AreaUnit.HECTARE, (value) => ConvertToHectare(value) },
+            { AreaUnit.ACRE, (value) => ConvertToAcre(value) }
         };
 
         public static decimal convert(AreaUnit convertTo, decimal value)
@@ -70,6 +72,18 @@ namespace unit_conversion.Conversions.Area
         {
             decimal sqMeter = ConvertToSqMeter(value);
             return sqMeter / 2589990m;
+        }
+
+        private static decimal ConvertToHectare(decimal value)
+        {
+            decimal sqMeter = ConvertToSqMeter(value);
+            return sqMeter / 10000m;
+        }
+
+        private static decimal ConvertToAcre(decimal value)
+        {
+            decimal sqYard = ConvertToSqYard(value);
+            return sqYard / 4840m;
         }
     }
 }
