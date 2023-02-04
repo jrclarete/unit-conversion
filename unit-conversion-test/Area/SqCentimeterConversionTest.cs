@@ -41,6 +41,16 @@ namespace unit_conversion_test.Area
         }
 
         [Fact]
+        public void ConvertToSqInch()
+        {
+            // Act
+            decimal toSqInch = AreaConversion.convert(AreaUnit.SQCENTIMETER, AreaUnit.SQINCH, 5);
+
+            // Assert
+            Assert.Equal(0.7750015500031000062000124m, toSqInch);
+        }
+
+        [Fact]
         public void ConvertToSqCentimeter()
         {
             // Act
