@@ -81,6 +81,16 @@ namespace unit_conversion_test.Area
         }
 
         [Fact]
+        public void ConvertToHectare()
+        {
+            // Act
+            decimal toHectare = AreaConversion.convert(AreaUnit.SQCENTIMETER, AreaUnit.HECTARE, 5);
+
+            // Assert
+            Assert.Equal(0.00000005m, toHectare);
+        }
+
+        [Fact]
         public void ConvertToSqCentimeter()
         {
             // Act
