@@ -71,6 +71,16 @@ namespace unit_conversion_test.Area
         }
 
         [Fact]
+        public void ConvertToSqMile()
+        {
+            // Act
+            decimal toSqMile = AreaConversion.convert(AreaUnit.SQCENTIMETER, AreaUnit.SQMILE, 5);
+
+            // Assert
+            Assert.Equal(0.0000000001930509384206116626m, toSqMile);
+        }
+
+        [Fact]
         public void ConvertToSqCentimeter()
         {
             // Act
