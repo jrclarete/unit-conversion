@@ -19,6 +19,7 @@ namespace unit_conversion.Conversions.Area
             { AreaUnit.SQYARD, (value) => ConvertToSqYard(value) },
             { AreaUnit.SQMILE, (value) => ConvertToSqMile(value) },
             { AreaUnit.HECTARE, (value) => ConvertToHectare(value) },
+            { AreaUnit.ACRE, (value) => ConvertToAcre(value) },
         };
 
         public static decimal convert(AreaUnit convertTo, decimal value)
@@ -75,6 +76,12 @@ namespace unit_conversion.Conversions.Area
         private static decimal ConvertToHectare(decimal value)
         {
             return value / 100000000m;
+        }
+
+        private static decimal ConvertToAcre(decimal value)
+        {
+            decimal sqInch = value / 6.4516m;
+            return sqInch / 6272640m;
         }
     }
 }

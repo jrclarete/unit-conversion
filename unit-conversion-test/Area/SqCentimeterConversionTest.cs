@@ -91,6 +91,16 @@ namespace unit_conversion_test.Area
         }
 
         [Fact]
+        public void ConvertToAcre()
+        {
+            // Act
+            decimal toAcre = AreaConversion.convert(AreaUnit.SQCENTIMETER, AreaUnit.ACRE, 5);
+
+            // Assert
+            Assert.Equal(0.0000001235526907335826711241m, toAcre);
+        }
+
+        [Fact]
         public void ConvertToSqCentimeter()
         {
             // Act
