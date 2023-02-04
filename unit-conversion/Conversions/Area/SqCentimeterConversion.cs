@@ -12,7 +12,7 @@ namespace unit_conversion.Conversions.Area
         private static Dictionary<AreaUnit, Func<decimal, decimal>> MethodDict = new Dictionary<AreaUnit, Func<decimal, decimal>>()
         {
             { AreaUnit.SQMILLIMETER, (value) => ConvertToSqMillimeter(value) },
-     
+            { AreaUnit.SQMETER, (value) => ConvertToSqMeter(value) },
         };
 
         public static decimal convert(AreaUnit convertTo, decimal value)
@@ -34,6 +34,11 @@ namespace unit_conversion.Conversions.Area
         private static decimal ConvertToSqMillimeter(decimal value)
         {
             return value * 100m;
+        }
+
+        private static decimal ConvertToSqMeter(decimal value)
+        {
+            return value * 0.0001m;
         }
     }
 }

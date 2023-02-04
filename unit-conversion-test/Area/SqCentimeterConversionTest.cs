@@ -21,6 +21,16 @@ namespace unit_conversion_test.Area
         }
 
         [Fact]
+        public void ConvertToSqMeter()
+        {
+            // Act
+            decimal toSqMeter = AreaConversion.convert(AreaUnit.SQCENTIMETER, AreaUnit.SQMETER, 5);
+
+            // Assert
+            Assert.Equal(0.0005m, toSqMeter);
+        }
+
+        [Fact]
         public void ConvertToSqCentimeter()
         {
             // Act
