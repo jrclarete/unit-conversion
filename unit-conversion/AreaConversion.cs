@@ -13,7 +13,7 @@ namespace unit_conversion
     {
         private static Dictionary<AreaUnit, Func<AreaUnit, decimal, decimal>> UnitDict = new Dictionary<AreaUnit, Func<AreaUnit, decimal, decimal>>()
         {
-            { AreaUnit.SQMILLIMETER, (convertTo, value) => SquareMillimeterConversion.convert(convertTo, value) },
+            { AreaUnit.SQMILLIMETER, (convertTo, value) => SqMillimeterConversion.convert(convertTo, value) },
         };
 
         /// <summary>

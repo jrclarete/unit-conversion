@@ -8,7 +8,7 @@ using unit_conversion;
 
 namespace unit_conversion_test.Area
 {
-    public class SquareMillimeterConversionTest
+    public class SqMillimeterConversionTest
     {
         [Fact]
         public void ConvertToSqCentimeter()

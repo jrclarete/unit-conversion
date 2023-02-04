@@ -7,7 +7,7 @@ using unit_conversion.Enums;
 
 namespace unit_conversion.Conversions.Area
 {
-    internal class SquareMillimeterConversion
+    internal class SqMillimeterConversion
     {
         private static Dictionary<AreaUnit, Func<decimal, decimal>> MethodDict = new Dictionary<AreaUnit, Func<decimal, decimal>>()
         {
