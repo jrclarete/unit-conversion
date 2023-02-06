@@ -15,6 +15,7 @@ namespace unit_conversion
         {
             { AreaUnit.SQMILLIMETER, (convertTo, value) => SqMillimeterConversion.convert(convertTo, value) },
             { AreaUnit.SQCENTIMETER, (convertTo, value) => SqCentimeterConversion.convert(convertTo, value) },
+            { AreaUnit.SQMETER, (convertTo, value) => SqMeterConversion.convert(convertTo, value) },
         };
 
         /// <summary>
