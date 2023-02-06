@@ -13,6 +13,7 @@ namespace unit_conversion.Conversions.Area
         {
             { AreaUnit.SQMILLIMETER, (value) => ConvertToSqMillimeter(value) },
             { AreaUnit.SQCENTIMETER, (value) => ConvertToSqCentimeter(value) },
+            { AreaUnit.SQKILOMETER, (value) => ConvertToSqMeter(value) },
         };
 
         public static decimal convert(AreaUnit convertTo, decimal value)
@@ -39,6 +40,11 @@ namespace unit_conversion.Conversions.Area
         private static decimal ConvertToSqCentimeter(decimal value)
         {
             return value * 10000m;
+        }
+
+        private static decimal ConvertToSqMeter(decimal value)
+        {
+            return value * 0.000001m;
         }
     }
 }

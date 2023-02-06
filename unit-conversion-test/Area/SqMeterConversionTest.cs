@@ -39,5 +39,15 @@ namespace unit_conversion_test.Area
             // Assert
             Assert.Equal(5m, toSqMeter);
         }
+
+        [Fact]
+        public void ConvertToSqKilometer()
+        {
+            // Act
+            decimal toSqKilometer = AreaConversion.convert(AreaUnit.SQMETER, AreaUnit.SQKILOMETER, 5);
+
+            // Assert
+            Assert.Equal(0.000005m, toSqKilometer);
+        }
     }
 }
