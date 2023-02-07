@@ -13,7 +13,9 @@ namespace unit_conversion.Conversions.Area
         {
             { AreaUnit.SQMILLIMETER, (value) => ConvertToSqMillimeter(value) },
             { AreaUnit.SQCENTIMETER, (value) => ConvertToSqCentimeter(value) },
-            { AreaUnit.SQKILOMETER, (value) => ConvertToSqMeter(value) },
+            { AreaUnit.SQKILOMETER, (value) => ConvertToSqKilometer(value) },
+            { AreaUnit.SQINCH, (value) => ConvertToSqInch(value) },
+            { AreaUnit.SQFOOT, (value) => ConvertToSqFoot(value) },
         };
 
         public static decimal convert(AreaUnit convertTo, decimal value)
@@ -42,9 +44,20 @@ namespace unit_conversion.Conversions.Area
             return value * 10000m;
         }
 
-        private static decimal ConvertToSqMeter(decimal value)
+        private static decimal ConvertToSqKilometer(decimal value)
         {
             return value * 0.000001m;
+        }
+
+        private static decimal ConvertToSqInch(decimal value)
+        {
+            return value * 1550.0031m;
+        }
+
+        private static decimal ConvertToSqFoot(decimal value)
+        {
+            decimal sqCentimeter = value * 10000m;
+            return sqCentimeter / 929.0304m;
         }
     }
 }

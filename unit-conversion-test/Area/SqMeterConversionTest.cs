@@ -31,16 +31,6 @@ namespace unit_conversion_test.Area
         }
 
         [Fact]
-        public void ConvertToSqMeter()
-        {
-            // Act
-            decimal toSqMeter = AreaConversion.convert(AreaUnit.SQMETER, AreaUnit.SQMETER, 5);
-
-            // Assert
-            Assert.Equal(5m, toSqMeter);
-        }
-
-        [Fact]
         public void ConvertToSqKilometer()
         {
             // Act
@@ -48,6 +38,36 @@ namespace unit_conversion_test.Area
 
             // Assert
             Assert.Equal(0.000005m, toSqKilometer);
+        }
+
+        [Fact]
+        public void ConvertToSqInch()
+        {
+            // Act
+            decimal toSqInch = AreaConversion.convert(AreaUnit.SQMETER, AreaUnit.SQINCH, 5);
+
+            // Assert
+            Assert.Equal(7750.0155m, toSqInch);
+        }
+
+        [Fact]
+        public void ConvertToSqFoot()
+        {
+            // Act
+            decimal toSqFoot = AreaConversion.convert(AreaUnit.SQMETER, AreaUnit.SQFOOT, 5);
+
+            // Assert
+            Assert.Equal(53.81955208354861154166752778m, toSqFoot);
+        }
+
+        [Fact]
+        public void ConvertToSqMeter()
+        {
+            // Act
+            decimal toSqMeter = AreaConversion.convert(AreaUnit.SQMETER, AreaUnit.SQMETER, 5);
+
+            // Assert
+            Assert.Equal(5m, toSqMeter);
         }
     }
 }
