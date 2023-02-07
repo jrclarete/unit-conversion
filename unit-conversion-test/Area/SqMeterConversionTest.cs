@@ -61,6 +61,16 @@ namespace unit_conversion_test.Area
         }
 
         [Fact]
+        public void ConvertToSqYard()
+        {
+            // Act
+            decimal toSqYard = AreaConversion.convert(AreaUnit.SQMETER, AreaUnit.SQYARD, 5);
+
+            // Assert
+            Assert.Equal(5.9799502315054012824075030866m, toSqYard);
+        }
+
+        [Fact]
         public void ConvertToSqMeter()
         {
             // Act

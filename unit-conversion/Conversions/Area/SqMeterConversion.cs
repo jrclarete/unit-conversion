@@ -16,6 +16,7 @@ namespace unit_conversion.Conversions.Area
             { AreaUnit.SQKILOMETER, (value) => ConvertToSqKilometer(value) },
             { AreaUnit.SQINCH, (value) => ConvertToSqInch(value) },
             { AreaUnit.SQFOOT, (value) => ConvertToSqFoot(value) },
+            { AreaUnit.SQYARD, (value) => ConvertToSqYard(value) },
         };
 
         public static decimal convert(AreaUnit convertTo, decimal value)
@@ -58,6 +59,12 @@ namespace unit_conversion.Conversions.Area
         {
             decimal sqCentimeter = value * 10000m;
             return sqCentimeter / 929.0304m;
+        }
+
+        private static decimal ConvertToSqYard(decimal value)
+        {
+            decimal sqCentimeter = value * 10000m;
+            return sqCentimeter / 8361.2736m;
         }
     }
 }
